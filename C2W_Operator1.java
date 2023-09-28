@@ -32,6 +32,11 @@ class C2W_Operator1 {
         String s = (Integer.toString(a));
     }
     public static void main(String[] args) {
-     
+        // It's range is -128 to 127
+        byte b = (byte)255;        // error: incompatible types: possible lossy conversion from int to byte
+        // TypeCase works but gives different output like -1=127-128 and their addition is 255
+
+        short s = (short)(Math.pow(2, 15)-1);
+        System.out.println(s);
     }
 }

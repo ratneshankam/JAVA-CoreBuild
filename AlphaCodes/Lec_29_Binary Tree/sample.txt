@@ -1,0 +1,40 @@
+function main(){
+   //your code here
+   putBeeper();
+   diagonalPattern();
+   diagonalPattern();
+   logic();
+   logic();
+     
+}
+
+function diagonalPattern() {
+   move();
+   move();
+   putBeeper();
+}
+
+function leftMove() {
+   turnLeft();
+   move();
+   turnLeft();
+   move();
+   putBeeper();
+}
+
+function rightMove() {
+   move();
+   turnRight();
+   move();
+   turnRight();
+   
+   putBeeper();
+}
+
+function logic() {
+   leftMove();
+   diagonalPattern();
+   rightMove();
+   diagonalPattern();
+   diagonalPattern();
+}
