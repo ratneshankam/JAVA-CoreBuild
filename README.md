@@ -44,7 +44,7 @@ For specific queries or guidance, reach out to Shashi Bagal Sir on [LinkedIn](ht
 
 ## License
 
-This project is licensed under the [MIT License](LICENSE).
+This project is licensed under the [Apache License](LICENSE).
 
 ---
 
