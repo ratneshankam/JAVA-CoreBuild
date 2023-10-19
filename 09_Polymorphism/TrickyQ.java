@@ -9,6 +9,7 @@ class Parent {
 class Child extends Parent {
     int fun() {                     //char fun(){}
         return 'A';
+        // return 0;
     }
     String gun() {
         return "Hello";
