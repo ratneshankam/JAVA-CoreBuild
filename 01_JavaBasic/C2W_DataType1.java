@@ -21,3 +21,14 @@ class Main {
         
     }
 }
+
+// Var works in java version 11
+class Demo {
+    void fun() {}
+
+    public static void main(String[] args) {
+        Demo obj = new Demo();
+        var a = 5;
+        System.out.println(a);
+    }
+}
