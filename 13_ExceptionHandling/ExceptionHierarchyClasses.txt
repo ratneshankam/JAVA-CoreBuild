@@ -1,0 +1,200 @@
+PS A:\> javap java.lang.Throwable
+Compiled from "Throwable.java"
+public class java.lang.Throwable implements java.io.Serializable {
+  static final boolean $assertionsDisabled;
+  public java.lang.Throwable();
+  public java.lang.Throwable(java.lang.String);
+  public java.lang.Throwable(java.lang.String, java.lang.Throwable);
+  public java.lang.Throwable(java.lang.Throwable);
+  protected java.lang.Throwable(java.lang.String, java.lang.Throwable, boolean, boolean);
+  public java.lang.String getMessage();
+  public java.lang.String getLocalizedMessage();
+  public synchronized java.lang.Throwable getCause();
+  public synchronized java.lang.Throwable initCause(java.lang.Throwable);
+  final void setCause(java.lang.Throwable);
+  public java.lang.String toString();
+  public void printStackTrace();
+  public void printStackTrace(java.io.PrintStream);
+  public void printStackTrace(java.io.PrintWriter);
+  public synchronized java.lang.Throwable fillInStackTrace();
+  public java.lang.StackTraceElement[] getStackTrace();
+  public void setStackTrace(java.lang.StackTraceElement[]);
+  public final synchronized void addSuppressed(java.lang.Throwable);
+  public final synchronized java.lang.Throwable[] getSuppressed();
+  static {};	}
+=====================================================================================
+
+PS A:\> javap java.lang.Exception
+Compiled from "Exception.java"
+public class java.lang.Exception extends java.lang.Throwable {
+  static final long serialVersionUID;
+  public java.lang.Exception();
+  public java.lang.Exception(java.lang.String);
+  public java.lang.Exception(java.lang.String, java.lang.Throwable);
+  public java.lang.Exception(java.lang.Throwable);
+  protected java.lang.Exception(java.lang.String, java.lang.Throwable, boolean, boolean);	}
+=====================================================================================
+
+PS A:\> javap java.io.IOException  
+Compiled from "IOException.java"
+public class java.io.IOException extends java.lang.Exception {
+  static final long serialVersionUID;
+  public java.io.IOException();
+  public java.io.IOException(java.lang.String);
+  public java.io.IOException(java.lang.String, java.lang.Throwable);
+  public java.io.IOException(java.lang.Throwable);
+}
+===================================================================================
+
+PS A:\> javap java.lang.InterruptedException
+Compiled from "InterruptedException.java"
+public class java.lang.InterruptedException extends java.lang.Exception {
+  public java.lang.InterruptedException();
+  public java.lang.InterruptedException(java.lang.String);   
+}
+===================================================================================
+
+## Runtime Exceptions Starts from here... ##
+
+PS A:\> javap java.lang.RuntimeException
+Compiled from "RuntimeException.java"
+public class java.lang.RuntimeException extends java.lang.Exception {
+  static final long serialVersionUID;
+  public java.lang.RuntimeException();
+  public java.lang.RuntimeException(java.lang.String);
+  public java.lang.RuntimeException(java.lang.String, java.lang.Throwable);
+  public java.lang.RuntimeException(java.lang.Throwable);
+  protected java.lang.RuntimeException(java.lang.String, java.lang.Throwable, boolean, boolean);
+}
+
+===================================================================================
+
+PS A:\> javap java.lang.ArrayIndexOutOfBoundsException
+Compiled from "ArrayIndexOutOfBoundsException.java"
+public class java.lang.ArrayIndexOutOfBoundsException extends java.lang.IndexOutOfBoundsException {
+  public java.lang.ArrayIndexOutOfBoundsException();
+  public java.lang.ArrayIndexOutOfBoundsException(java.lang.String);
+  public java.lang.ArrayIndexOutOfBoundsException(int);
+}
+===================================================================================
+
+PS A:\> javap java.lang.StringIndexOutOfBoundsException
+Compiled from "StringIndexOutOfBoundsException.java"
+public class java.lang.StringIndexOutOfBoundsException extends java.lang.IndexOutOfBoundsException {
+  public java.lang.StringIndexOutOfBoundsException();        
+  public java.lang.StringIndexOutOfBoundsException(java.lang.String);
+  public java.lang.StringIndexOutOfBoundsException(int);     
+}
+===================================================================================
+
+PS A:\> javap java.lang.IndexOutOfBoundsException     
+Compiled from "IndexOutOfBoundsException.java"
+public class java.lang.IndexOutOfBoundsException extends java.lang.RuntimeException {
+  public java.lang.IndexOutOfBoundsException();
+  public java.lang.IndexOutOfBoundsException(java.lang.String);
+  public java.lang.IndexOutOfBoundsException(int);
+  public java.lang.IndexOutOfBoundsException(long);
+}
+===================================================================================
+
+PS A:\> javap java.lang.ArithmeticException
+Compiled from "ArithmeticException.java"
+public class java.lang.ArithmeticException extends java.lang.RuntimeException {
+  public java.lang.ArithmeticException();
+  public java.lang.ArithmeticException(java.lang.String);
+}
+===================================================================================
+
+PS A:\> javap java.lang.NullPointerException
+Compiled from "NullPointerException.java"
+public class java.lang.NullPointerException extends java.lang.RuntimeException {
+  public java.lang.NullPointerException();
+  public java.lang.NullPointerException(java.lang.String);   
+  public synchronized java.lang.Throwable fillInStackTrace();
+  public java.lang.String getMessage();
+}
+===================================================================================
+
+PS A:\> javap java.lang.NumberFormatException
+Compiled from "NumberFormatException.java"
+public class java.lang.NumberFormatException extends java.lang.IllegalArgumentException {                                 
+  static final long serialVersionUID;
+  public java.lang.NumberFormatException();                  
+  public java.lang.NumberFormatException(java.lang.String);
+  static java.lang.NumberFormatException forInputString(java.lang.String, int);
+  static java.lang.NumberFormatException forCharSequence(java.lang.CharSequence, int, int, int);
+}
+===================================================================================
+
+PS A:\> javap java.lang.IllegalArgumentException
+Compiled from "IllegalArgumentException.java"
+public class java.lang.IllegalArgumentException extends java.lang.RuntimeException {
+  public java.lang.IllegalArgumentException();
+  public java.lang.IllegalArgumentException(java.lang.String);
+  public java.lang.IllegalArgumentException(java.lang.String, java.lang.Throwable);
+  public java.lang.IllegalArgumentException(java.lang.Throwable);
+}
+===================================================================================
+
+# Got many times during runningcode execution but observe that it's not in RuntimeException hierarchy #
+PS A:\> javap java.lang.ClassNotFoundException                        
+Compiled from "ClassNotFoundException.java"                  
+public class java.lang.ClassNotFoundException extends java.lang.ReflectiveOperationException {
+  public java.lang.ClassNotFoundException();
+  public java.lang.ClassNotFoundException(java.lang.String); 
+  public java.lang.ClassNotFoundException(java.lang.String, java.lang.Throwable);
+  public java.lang.Throwable getException();
+  static {};
+}
+===================================================================================
+
+S A:\> javap java.lang.ReflectiveOperationException
+Compiled from "ReflectiveOperationException.java"
+public class java.lang.ReflectiveOperationException extends java.lang.Exception {     // Important to notice
+  static final long serialVersionUID;
+  public java.lang.ReflectiveOperationException();
+  public java.lang.ReflectiveOperationException(java.lang.String);
+  public java.lang.ReflectiveOperationException(java.lang.String, java.lang.Throwable);
+  public java.lang.ReflectiveOperationException(java.lang.Throwable);
+}
+===================================================================================
+
+PS A:\> javap java.lang.Error
+Compiled from "Error.java"
+public class java.lang.Error extends java.lang.Throwable {   
+  static final long serialVersionUID;
+  public java.lang.Error();
+  public java.lang.Error(java.lang.String);
+  public java.lang.Error(java.lang.String, java.lang.Throwable);
+  public java.lang.Error(java.lang.Throwable);
+  protected java.lang.Error(java.lang.String, java.lang.Throwable, boolean, boolean);
+}
+===================================================================================
+
+PS A:\Core2Web\GitClone\Java-Core2Web\13_ExceptionHandling> javap java.lang.OutOfMemoryError
+Compiled from "OutOfMemoryError.java"
+public class java.lang.OutOfMemoryError extends java.lang.VirtualMachineError {
+  public java.lang.OutOfMemoryError();
+  public java.lang.OutOfMemoryError(java.lang.String);       
+}
+===================================================================================
+
+PS A:\Core2Web\GitClone\Java-Core2Web\13_ExceptionHandling> javap java.lang.StackOverflowError 
+Compiled from "StackOverflowError.java"
+public class java.lang.StackOverflowError extends java.lang.VirtualMachineError {
+  public java.lang.StackOverflowError();
+  public java.lang.StackOverflowError(java.lang.String);
+}
+===================================================================================
+
+PS A:\Core2Web\GitClone\Java-Core2Web\13_ExceptionHandling> javap java.lang.VirtualMachineError
+Compiled from "VirtualMachineError.java"
+public abstract class java.lang.VirtualMachineError extends java.lang.Error {
+  public java.lang.VirtualMachineError();
+  public java.lang.VirtualMachineError(java.lang.String);
+  public java.lang.VirtualMachineError(java.lang.String, java.lang.Throwable);
+  public java.lang.VirtualMachineError(java.lang.Throwable);
+}
+===================================================================================
+===================================================================================
+
