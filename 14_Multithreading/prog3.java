@@ -1,5 +1,5 @@
 class MyThread extends Thread {
-    // public void run() throws InterruptedException {             // We can't throws exception -> overridden method does not throw InterruptedException
+    // public void run() throws InterruptedException {             // We can't throws exception -> overridden method does not throw InterruptedException i.e try-catch is only option
     public void run() {
         for(int i=0; i<10; i++) {
             System.out.println("Loop1->" + i);
@@ -14,7 +14,7 @@ class MyThread extends Thread {
 class Demo {
     public static void main(String[] args) {
         MyThread obj = new MyThread();
-        obj.start();
+        obj.start();            
         
         for (int i=0; i<10; i++)
             System.out.println("Loop2-> " + i);
