@@ -2,13 +2,17 @@ class MyThread extends Thread {
     public void run() {
         System.out.println("In run");
         System.out.println("Mythread: " + Thread.currentThread().getName());
+        
+        AnotherThread obj = new AnotherThread();
+        obj.start();
     }
 
-    // Overriding start method didn't implement multithreading
-    // public void start() {
-    //     System.out.println("In start method");
-    //     run();
-    // }
+}
+
+class AnotherThread extends Thread {
+    public void run() {
+        System.out.println("AnotherThread: " + Thread.currentThread().getName());
+    }
 }
 class Demo {
     public static void main(String[] args) {
@@ -16,5 +20,9 @@ class Demo {
         obj.start();
 
         System.out.println("Demo: " + Thread.currentThread().getName());
+
+        // AnotherThread atobj = new AnotherThread();
+        // atobj.start();
+
     }
 }
