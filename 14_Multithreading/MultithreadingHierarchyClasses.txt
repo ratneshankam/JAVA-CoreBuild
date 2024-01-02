@@ -123,3 +123,133 @@ public class java.lang.ThreadGroup implements java.lang.Thread$UncaughtException
   public boolean allowThreadSuspension(boolean);
   public java.lang.String toString();
 }
+
+=====================================================================================
+
+
+PS A:\> javap java.util.concurrent.Executor
+Compiled from "Executor.java"
+public interface java.util.concurrent.Executor {
+  public abstract void execute(java.lang.Runnable);
+}
+
+=====================================================================================
+
+PS A:\> javap java.util.concurrent.Executors
+Compiled from "Executors.java"
+public class java.util.concurrent.Executors {
+  public static java.util.concurrent.ExecutorService newFixedThreadPool(int);
+  public static java.util.concurrent.ExecutorService newWorkStealingPool(int);
+  public static java.util.concurrent.ExecutorService newWorkStealingPool();
+  public static java.util.concurrent.ExecutorService newFixedThreadPool(int, java.util.concurrent.ThreadFactory);
+  public static java.util.concurrent.ExecutorService newSingleThreadExecutor();
+  public static java.util.concurrent.ExecutorService newSingleThreadExecutor(java.util.concurrent.ThreadFactory);
+  public static java.util.concurrent.ExecutorService newCachedThreadPool();
+  public static java.util.concurrent.ExecutorService newCachedThreadPool(java.util.concurrent.ThreadFactory);
+  public static java.util.concurrent.ScheduledExecutorService newSingleThreadScheduledExecutor();
+  public static java.util.concurrent.ScheduledExecutorService newSingleThreadScheduledExecutor(java.util.concurrent.ThreadFactory);     
+  public static java.util.concurrent.ScheduledExecutorService newScheduledThreadPool(int);
+  public static java.util.concurrent.ScheduledExecutorService newScheduledThreadPool(int, java.util.concurrent.ThreadFactory);
+  public static java.util.concurrent.ExecutorService unconfigurableExecutorService(java.util.concurrent.ExecutorService);
+  public static java.util.concurrent.ScheduledExecutorService unconfigurableScheduledExecutorService(java.util.concurrent.ScheduledExecutorService);
+  public static java.util.concurrent.ThreadFactory defaultThreadFactory();
+  public static java.util.concurrent.ThreadFactory privilegedThreadFactory();
+  public static <T> java.util.concurrent.Callable<T> callable(java.lang.Runnable, T);
+  public static java.util.concurrent.Callable<java.lang.Object> callable(java.lang.Runnable);
+  public static java.util.concurrent.Callable<java.lang.Object> callable(java.security.PrivilegedAction<?>);
+  public static java.util.concurrent.Callable<java.lang.Object> callable(java.security.PrivilegedExceptionAction<?>);
+  public static <T> java.util.concurrent.Callable<T> privilegedCallable(java.util.concurrent.Callable<T>);
+  public static <T> java.util.concurrent.Callable<T> privilegedCallableUsingCurrentClassLoader(java.util.concurrent.Callable<T>);       
+}
+
+=====================================================================================
+
+PS A:\> javap java.util.concurrent.ThreadPoolExecutor
+Compiled from "ThreadPoolExecutor.java"
+public class java.util.concurrent.ThreadPoolExecutor extends java.util.concurrent.AbstractExecutorService {
+  final void tryTerminate();
+  final void reject(java.lang.Runnable);
+  void onShutdown();
+  final void runWorker(java.util.concurrent.ThreadPoolExecutor$Worker);
+  public java.util.concurrent.ThreadPoolExecutor(int, int, long, java.util.concurrent.TimeUnit, java.util.concurrent.BlockingQueue<java.lang.Runnable>);
+  public java.util.concurrent.ThreadPoolExecutor(int, int, long, java.util.concurrent.TimeUnit, java.util.concurrent.BlockingQueue<java.lang.Runnable>, java.util.concurrent.ThreadFactory);
+  public java.util.concurrent.ThreadPoolExecutor(int, int, long, java.util.concurrent.TimeUnit, java.util.concurrent.BlockingQueue<java.lang.Runnable>, java.util.concurrent.RejectedExecutionHandler);
+  public java.util.concurrent.ThreadPoolExecutor(int, int, long, java.util.concurrent.TimeUnit, java.util.concurrent.BlockingQueue<java.lang.Runnable>, java.util.concurrent.ThreadFactory, java.util.concurrent.RejectedExecutionHandler);   
+  public void execute(java.lang.Runnable);
+  public void shutdown();
+  public java.util.List<java.lang.Runnable> shutdownNow();
+  public boolean isShutdown();    
+  boolean isStopped();
+  public boolean isTerminating(); 
+  public boolean isTerminated();  
+  public boolean awaitTermination(long, java.util.concurrent.TimeUnit) throws java.lang.InterruptedException;
+  protected void finalize();      
+  public void setThreadFactory(java.util.concurrent.ThreadFactory); 
+  public java.util.concurrent.ThreadFactory getThreadFactory();     
+  public void setRejectedExecutionHandler(java.util.concurrent.RejectedExecutionHandler);
+  public java.util.concurrent.RejectedExecutionHandler getRejectedExecutionHandler();
+  public void setCorePoolSize(int);
+  public int getCorePoolSize();   
+  public boolean prestartCoreThread();
+  void ensurePrestart();
+  public int prestartAllCoreThreads();
+  public boolean allowsCoreThreadTimeOut();
+  public void allowCoreThreadTimeOut(boolean);
+  public void setMaximumPoolSize(int);
+  public int getMaximumPoolSize();
+  public void setKeepAliveTime(long, java.util.concurrent.TimeUnit);
+  public long getKeepAliveTime(java.util.concurrent.TimeUnit);      
+  public java.util.concurrent.BlockingQueue<java.lang.Runnable> getQueue();
+  public boolean remove(java.lang.Runnable);
+  public void purge();
+  public int getPoolSize();       
+  public int getActiveCount();    
+  public int getLargestPoolSize();
+  public long getTaskCount();     
+  public long getCompletedTaskCount();
+  public java.lang.String toString();
+  protected void beforeExecute(java.lang.Thread, java.lang.Runnable);
+  protected void afterExecute(java.lang.Runnable, java.lang.Throwable);
+  protected void terminated();    
+  static {};
+}
+
+=====================================================================================
+
+PS A:\> javap java.util.concurrent.AbstractExecutorService  
+Compiled from "AbstractExecutorService.java"
+public abstract class java.util.concurrent.AbstractExecutorService implements java.util.concurrent.ExecutorService {
+  static final boolean $assertionsDisabled;
+  public java.util.concurrent.AbstractExecutorService();
+  protected <T> java.util.concurrent.RunnableFuture<T> newTaskFor(java.lang.Runnable, T);
+  protected <T> java.util.concurrent.RunnableFuture<T> newTaskFor(java.util.concurrent.Callable<T>);  
+  public java.util.concurrent.Future<?> submit(java.lang.Runnable); 
+  public <T> java.util.concurrent.Future<T> submit(java.lang.Runnable, T);
+  public <T> java.util.concurrent.Future<T> submit(java.util.concurrent.Callable<T>);
+  public <T> T invokeAny(java.util.Collection<? extends java.util.concurrent.Callable<T>>) throws java.lang.InterruptedException, java.util.concurrent.ExecutionException;
+  public <T> T invokeAny(java.util.Collection<? extends java.util.concurrent.Callable<T>>, long, java.util.concurrent.TimeUnit) throws java.lang.InterruptedException, java.util.concurrent.ExecutionException, java.util.concurrent.TimeoutException;
+  public <T> java.util.List<java.util.concurrent.Future<T>> invokeAll(java.util.Collection<? extends java.util.concurrent.Callable<T>>) throws java.lang.InterruptedException;
+  public <T> java.util.List<java.util.concurrent.Future<T>> invokeAll(java.util.Collection<? extends java.util.concurrent.Callable<T>>, long, java.util.concurrent.TimeUnit) throws java.lang.InterruptedException;
+  static {};
+}
+
+=====================================================================================
+
+PS A:\> javap java.util.concurrent.ExecutorService          
+Compiled from "ExecutorService.java"
+public interface java.util.concurrent.ExecutorService extends java.util.concurrent.Executor {
+  public abstract void shutdown();
+  public abstract java.util.List<java.lang.Runnable> shutdownNow(); 
+  public abstract boolean isShutdown();
+  public abstract boolean isTerminated();
+  public abstract boolean awaitTermination(long, java.util.concurrent.TimeUnit) throws java.lang.InterruptedException;
+  public abstract <T> java.util.concurrent.Future<T> submit(java.util.concurrent.Callable<T>);        
+  public abstract <T> java.util.concurrent.Future<T> submit(java.lang.Runnable, T);
+  public abstract java.util.concurrent.Future<?> submit(java.lang.Runnable);
+  public abstract <T> java.util.List<java.util.concurrent.Future<T>> invokeAll(java.util.Collection<? extends java.util.concurrent.Callable<T>>) throws java.lang.InterruptedException;
+  public abstract <T> java.util.List<java.util.concurrent.Future<T>> invokeAll(java.util.Collection<? extends java.util.concurrent.Callable<T>>, long, java.util.concurrent.TimeUnit) throws java.lang.InterruptedException;
+  public abstract <T> T invokeAny(java.util.Collection<? extends java.util.concurrent.Callable<T>>) throws java.lang.InterruptedException, java.util.concurrent.ExecutionException;
+  public abstract <T> T invokeAny(java.util.Collection<? extends java.util.concurrent.Callable<T>>, long, java.util.concurrent.TimeUnit) throws java.lang.InterruptedException, java.util.concurrent.ExecutionException, java.util.concurrent.TimeoutException;
+}
+
+=====================================================================================
