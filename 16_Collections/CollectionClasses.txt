@@ -20,6 +20,30 @@ public interface java.util.Iterator<E> {
 
 ================================================================================================================================================
 
+PS A:\> javap java.util.ListIterator        
+Compiled from "ListIterator.java"
+public interface java.util.ListIterator<E> extends java.util.Iterator<E> {
+  public abstract boolean hasNext();
+  public abstract E next();
+  public abstract boolean hasPrevious();
+  public abstract E previous();
+  public abstract int nextIndex();
+  public abstract int previousIndex();
+  public abstract void remove();
+  public abstract void set(E);
+  public abstract void add(E);
+}
+================================================================================================================================================
+
+PS A:\> javap java.util.Enumeration
+Compiled from "Enumeration.java"
+public interface java.util.Enumeration<E> {
+  public abstract boolean hasMoreElements();
+  public abstract E nextElement();
+  public default java.util.Iterator<E> asIterator();
+}
+================================================================================================================================================
+
 PS A:\> javap java.util.Spliterator
 Compiled from "Spliterator.java"
 public interface java.util.Spliterator<T> {
@@ -908,6 +932,57 @@ public class java.util.LinkedHashMap<K, V> extends java.util.HashMap<K, V> imple
   public void replaceAll(java.util.function.BiFunction<? super K, ? super V, ? extends V>);
 }
 ================================================================================================================================================
+
+PS A:\Core2Web\GitClone\JAVA-CoreBuild> javap java.util.concurrent.BlockingDeque
+Compiled from "BlockingDeque.java"
+public interface java.util.concurrent.BlockingDeque<E> extends java.util.concurrent.BlockingQueue<E>, java.util.Deque<E> {
+  public abstract void addFirst(E);   
+  public abstract void addLast(E);    
+  public abstract boolean offerFirst(E);
+  public abstract boolean offerLast(E);
+  public abstract void putFirst(E) throws java.lang.InterruptedException;   
+  public abstract void putLast(E) throws java.lang.InterruptedException;    
+  public abstract boolean offerFirst(E, long, java.util.concurrent.TimeUnit) throws java.lang.InterruptedException;
+  public abstract boolean offerLast(E, long, java.util.concurrent.TimeUnit) throws java.lang.InterruptedException;
+  public abstract E takeFirst() throws java.lang.InterruptedException;      
+  public abstract E takeLast() throws java.lang.InterruptedException;       
+  public abstract E pollFirst(long, java.util.concurrent.TimeUnit) throws java.lang.InterruptedException;
+  public abstract E pollLast(long, java.util.concurrent.TimeUnit) throws java.lang.InterruptedException;
+  public abstract boolean removeFirstOccurrence(java.lang.Object);
+  public abstract boolean removeLastOccurrence(java.lang.Object);
+  public abstract boolean add(E);     
+  public abstract boolean offer(E);   
+  public abstract void put(E) throws java.lang.InterruptedException;        
+  public abstract boolean offer(E, long, java.util.concurrent.TimeUnit) throws java.lang.InterruptedException;    
+  public abstract E remove();
+  public abstract E poll();
+  public abstract E take() throws java.lang.InterruptedException;
+  public abstract E poll(long, java.util.concurrent.TimeUnit) throws java.lang.InterruptedException;
+  public abstract E element();        
+  public abstract E peek();
+  public abstract boolean remove(java.lang.Object);
+  public abstract boolean contains(java.lang.Object);
+  public abstract int size();
+  public abstract java.util.Iterator<E> iterator();
+  public abstract void push(E);       
+}
 ================================================================================================================================================
+
+PS A:\Core2Web\GitClone\JAVA-CoreBuild> javap java.util.concurrent.BlockingQueue
+Compiled from "BlockingQueue.java"
+public interface java.util.concurrent.BlockingQueue<E> extends java.util.Queue<E> {
+  public abstract boolean add(E);     
+  public abstract boolean offer(E);   
+  public abstract void put(E) throws java.lang.InterruptedException;        
+  public abstract boolean offer(E, long, java.util.concurrent.TimeUnit) throws java.lang.InterruptedException;    
+  public abstract E take() throws java.lang.InterruptedException;
+  public abstract E poll(long, java.util.concurrent.TimeUnit) throws java.lang.InterruptedException;
+  public abstract int remainingCapacity();
+  public abstract boolean remove(java.lang.Object);
+  public abstract boolean contains(java.lang.Object);
+  public abstract int drainTo(java.util.Collection<? super E>);
+  public abstract int drainTo(java.util.Collection<? super E>, int);        
+}
+PS A:\Core2Web\GitClone\JAVA-CoreBuild>
 ================================================================================================================================================
 ================================================================================================================================================
